@@ -12,7 +12,7 @@ const Navbar = () => (
     <Spacer />
     <Box>
       <Menu>
-        <MenuButton as={IconButton} icon={<FcMenu />} variant='outline' color='red.400' />
+        <MenuButton as={IconButton} icon={<FcMenu />} variant='outline' color='red.400' display={{ base: "none", md: "inline-flex" }}/>
         <MenuList>
           <Link href='/' passHref>
             <MenuItem icon={<FcHome />}>Home</MenuItem>
@@ -27,7 +27,7 @@ const Navbar = () => (
             <MenuItem icon={<FiKey />}>Rent Property</MenuItem>
           </Link>
         </MenuList>
-      </Menu>
+      </Menu> 
     </Box>
   </Flex>
 );
