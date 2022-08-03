@@ -1,4 +1,5 @@
 import { Box, Flex, Spacer, Text } from '@chakra-ui/layout';
+import { useColorModeValue } from "@chakra-ui/react";
 import { Avatar } from '@chakra-ui/avatar';
 import { FaBed, FaBath } from 'react-icons/fa';
 import { BsGridFill } from 'react-icons/bs';
@@ -7,12 +8,12 @@ import millify from 'millify';
 
 import { baseUrl, fetchApi } from '../../utils/fetchApi';
 import ImageScrollbar from '../../components/ImageScrollbar';
-// import ImageCarousel from '../../components/ImageCarousel';
+import ImageCarousel from '../../components/ImageCarousel';
 
 const PropertyDetails = ({ propertyDetails: { price, rentFrequency, rooms, title, baths, area, agency, isVerified, description, type, purpose, furnishingStatus, amenities, photos } }) => (
     <Box maxWidth='1000px' margin='auto' p='4'>
-        {photos && <ImageScrollbar data={photos} />}
-        {/* <ImageCarousel /> */}
+        {/* {photos && <ImageScrollbar data={photos} />} */}
+        {photos && <ImageCarousel data={photos} /> }
         <Box w='full' p='6'>
             <Flex paddingTop='2' alignItems='center'>
                 <Box paddingRight='3' color='green.400'>{isVerified && <GoVerified />}</Box>
@@ -28,7 +29,7 @@ const PropertyDetails = ({ propertyDetails: { price, rentFrequency, rooms, title
         </Box>
         <Box marginTop='2'>
             <Text fontSize='lg' marginBottom='2' fontWeight='bold'>{title}</Text>
-            <Text lineHeight='2' color='gray.600'>{description}</Text>
+            <Text lineHeight='2' color={useColorModeValue('gray.600', 'gray.200')}>{description}</Text>
         </Box>
         <Flex flexWrap='wrap' textTransform='uppercase' justifyContent='space-between'>
             <Flex justifyContent='space-between' w='400px' borderBottom='1px' borderColor='gray.100' p='3'>
