@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image'
-import { Flex, Box, Text, Icon } from '@chakra-ui/react';
+import { Flex, Box, Text, Icon, useColorModeValue } from '@chakra-ui/react';
 import { BsFilter } from 'react-icons/bs';
 
-import Property from '../components/Property';
+import PropertySet from '../components/PropertySet';
 import SearchFilters from '../components/SearchFilters';
 import { baseUrl, fetchApi } from '../utils/fetchApi';
 import noresult from '../assets/images/noresult.svg'
@@ -18,9 +18,9 @@ const Search = ({ properties }) => {
       <Flex
         onClick={() => setSearchFilters(!searchFilters)}
         cursor='pointer'
-        bg='gray.100'
+        bg={useColorModeValue('gray.100', 'gray.900')}
         borderBottom='1px'
-        borderColor='gray.200'
+        borderColor={useColorModeValue('gray.100', 'blackAlpha.600')}
         p='2'
         fontWeight='black'
         fontSize='lg'
@@ -35,11 +35,11 @@ const Search = ({ properties }) => {
         Properties {router.query.purpose}
       </Text>
       <Flex flexWrap='wrap'>
-        {properties.map((property) => <Property property={property} key={property.id} />)}
+        {properties.map((propertyItem) => <PropertySet propertyDt={propertyItem} key={propertyItem.id} />)}
       </Flex>
       {properties.length === 0 && (
         <Flex justifyContent='center' alignItems='center' flexDir='column' marginTop='5' marginBottom='5'>
-          <Image src={noresult} />
+          <Image src={noresult} loading="lazy"/>
           <Text fontSize='xl' marginTop='3'>No Results Found.</Text>
         </Flex>
       )}

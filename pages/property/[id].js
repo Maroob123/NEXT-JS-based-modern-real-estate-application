@@ -1,13 +1,14 @@
 import { Box, Flex, Spacer, Text } from '@chakra-ui/layout';
 import { useColorModeValue } from "@chakra-ui/react";
-import { Avatar } from '@chakra-ui/avatar';
+// import { Avatar } from '@chakra-ui/avatar';
 import { FaBed, FaBath } from 'react-icons/fa';
 import { BsGridFill } from 'react-icons/bs';
 import { GoVerified } from 'react-icons/go';
 import millify from 'millify';
+import Image from 'next/image';
 
 import { baseUrl, fetchApi } from '../../utils/fetchApi';
-import ImageScrollbar from '../../components/ImageScrollbar';
+// import ImageScrollbar from '../../components/ImageScrollbar';
 import ImageCarousel from '../../components/ImageCarousel';
 
 const PropertyDetails = ({ propertyDetails: { price, rentFrequency, rooms, title, baths, area, agency, isVerified, description, type, purpose, furnishingStatus, amenities, photos } }) => (
@@ -18,10 +19,11 @@ const PropertyDetails = ({ propertyDetails: { price, rentFrequency, rooms, title
             <Flex paddingTop='2' alignItems='center'>
                 <Box paddingRight='3' color='green.400'>{isVerified && <GoVerified />}</Box>
                 <Text fontWeight='bold' fontSize='lg'>
-                    AED {price} {rentFrequency && `/${rentFrequency}`}
+                    AED {price.toLocaleString('en-US')} {rentFrequency && `/${rentFrequency}`}
                 </Text>
                 <Spacer />
-                <Avatar size='sm' src={agency?.logo?.url}></Avatar>
+                {/* <Avatar size='lg' src={agency?.logo?.url}></Avatar> */}
+                <Image  src={agency?.logo?.url} layout="intrinsic" width="100%" height="30" loading="lazy"/>
             </Flex>
             <Flex alignItems='center' p='1' justifyContent='space-between' w='250px' color='blue.400'>
                 {rooms}<FaBed /> | {baths} <FaBath /> | {millify(area)} sqft <BsGridFill />

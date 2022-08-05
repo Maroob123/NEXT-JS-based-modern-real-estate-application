@@ -9,11 +9,11 @@ import millify from 'millify';
 
 import DefaultImage from '../assets/images/house.jpg';
 
-const Property = ({ property: { coverPhoto, price, rentFrequency, rooms, title, baths, area, agency, isVerified, externalID  } }) => (
+const PropertySet = ({ propertyDt: { coverPhoto, price, rentFrequency, rooms, title, baths, area, agency, isVerified, externalID  } }) => (
   <Link href={`/property/${externalID}`} passHref>
     <Flex flexWrap='wrap' w='420px' p='5' paddingTop='0px' justifyContent='center' cursor='pointer' >
       <Box>
-        <Image src={coverPhoto ? coverPhoto.url : DefaultImage} width={400} height={260} />
+        <Image src={coverPhoto ? coverPhoto.url : DefaultImage} width={400} height={260} loading="lazy"/>
       </Box>
       <Box w='full'>
         <Flex paddingTop='2' alignItems='center' justifyContent='space-between'>
@@ -37,4 +37,4 @@ const Property = ({ property: { coverPhoto, price, rentFrequency, rooms, title, 
   </Link>
 );
 
-export default Property;
+export default PropertySet;

@@ -33,7 +33,7 @@ export default function Navbar() {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <Box bg={useColorModeValue('white', 'gray.900')} px={4} borderBottom='1px' borderColor='gray.100'>
+    <Box bg={useColorModeValue('white', 'gray.900')} px={4} borderBottom='1px' borderColor={useColorModeValue('gray.100', 'blackAlpha.700')}>
       <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
         <Button
           size={'md'}
@@ -44,13 +44,13 @@ export default function Navbar() {
           {isOpen ? <GrClose /> : <GiHamburgerMenu />}
         </Button>
 
-        <HStack spacing={8} alignItems={'center'}>
+        <HStack spacing={10} alignItems={'center'}>
           <Box fontSize='3xl' color='blue.400' fontWeight='bold' mb='2'>
             <Link href='/' paddingLeft='2' >Yourplace</Link>
           </Box>
           <HStack
             as={'nav'}
-            spacing={4}
+            spacing={8}
             display={{ base: 'none', md: 'flex' }}
             >
             {Links.map((link) => (
@@ -60,7 +60,7 @@ export default function Navbar() {
                 rounded={'md'}
                 _hover={{
                   textDecoration: 'none',
-                  bg: useColorModeValue('gray.200', 'gray.700'),
+                  bg: useColorModeValue('gray.700', 'gray.200'),
                 }}
                 href={link.navHref}
                 key={link.navTitle}>

@@ -6,13 +6,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 import 'swiper/css/pagination';
 import "swiper/css/free-mode";
+import "swiper/css/lazy";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
 // import "./styles.css";
 
 // import required modules
-import { Lazy, FreeMode, Navigation, Thumbs } from "swiper";
+import { Autoplay, Lazy, FreeMode, Navigation, Thumbs } from "swiper";
 
 export default function ImageCarousel({ data }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -30,12 +31,17 @@ export default function ImageCarousel({ data }) {
         navigation={true}
         // thumbs={{ swiper: thumbsSwiper }}
         thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
-        modules={[Lazy, FreeMode, Navigation, Thumbs]}
+        modules={[Autoplay, Lazy, FreeMode, Navigation, Thumbs]}
         className="mySwiper2"
+        centeredSlides={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
       >
         {data.map((item) => (
-          <SwiperSlide key={item.id} width='910px'>
-            <img src={item.url} />
+          <SwiperSlide key={item.id} width='100%' style={{maxHeight: "450px"}}>
+            <img data-src={item.url} className="swiper-lazy"/>
             <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
           </SwiperSlide>
         ))}
@@ -49,10 +55,10 @@ export default function ImageCarousel({ data }) {
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper"
-        style={{marginTop: "-8%"}}
+        style={{marginTop: "20px"}}
       >
         {data.map((item) => (
-          <SwiperSlide key={item.id}>
+          <SwiperSlide key={item.id} style={{maxHeight: "100px", border: "1px solid gray"}} >
             <img src={item.url} />
           </SwiperSlide>
         ))}

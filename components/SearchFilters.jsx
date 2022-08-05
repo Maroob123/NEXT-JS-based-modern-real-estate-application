@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Flex, Select, Box, Text, Input, Spinner, Icon, Button } from '@chakra-ui/react';
+import { Flex, Select, Box, Text, Input, Spinner, Icon, Button, useColorModeValue } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import { MdCancel } from 'react-icons/md';
 import Image from 'next/image';
@@ -45,7 +45,7 @@ export default function SearchFilters() {
   }, [searchTerm]);
 
   return (
-    <Flex bg='gray.100' p='4' justifyContent='center' flexWrap='wrap'>
+    <Flex bg={useColorModeValue('gray.100', 'gray.900')} p='4' justifyContent='center' flexWrap='wrap'>
       {filters?.map((filter) => (
         <Box key={filter.queryName}>
           <Select onChange={(e) => searchProperties({ [filter.queryName]: e.target.value })} placeholder={filter.placeholder} w='fit-content' p='2' >
