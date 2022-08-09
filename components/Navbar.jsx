@@ -7,11 +7,13 @@ import {
   useColorModeValue,
   Stack,
   useColorMode,
+  Text
 } from '@chakra-ui/react';
 import Link from 'next/link';
 import { MdDarkMode, MdLightMode } from 'react-icons/md';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { GrClose } from 'react-icons/gr';
+import {SiHomeassistantcommunitystore} from 'react-icons/si';
 
 const Links = [{
   navTitle: 'Home',
@@ -34,7 +36,7 @@ export default function Navbar() {
 
   return (
     <Box bg={useColorModeValue('white', 'gray.900')} px={4} borderBottom='1px' borderColor={useColorModeValue('gray.100', 'blackAlpha.700')}>
-      <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+      <Flex h={16} alignItems={'center'} justifyContent={'space-between'} maxW={'7xl'} m='auto'>
         <Button
           size={'md'}
           aria-label={'Open Menu'}
@@ -45,9 +47,12 @@ export default function Navbar() {
         </Button>
 
         <HStack spacing={10} alignItems={'center'}>
-          <Box fontSize='3xl' color='blue.400' fontWeight='bold' mb='2'>
+          {/* <Box fontSize='3xl' color='blue.400' fontWeight='bold' mb='2'>
             <Link href='/' paddingLeft='2' >Yourplace</Link>
-          </Box>
+          </Box> */}
+          <Flex alignItems='center'fontSize='3xl' color='blue.400' fontWeight='bold' >
+          <SiHomeassistantcommunitystore/><Text ml={2} >Home Seeker </Text>
+            </Flex>
           <HStack
             as={'nav'}
             spacing={8}

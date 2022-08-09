@@ -35,7 +35,7 @@ export default function ImageCarousel({ data }) {
         className="mySwiper2"
         centeredSlides={true}
         autoplay={{
-          delay: 2500,
+          delay: 5000,
           disableOnInteraction: false,
         }}
       >

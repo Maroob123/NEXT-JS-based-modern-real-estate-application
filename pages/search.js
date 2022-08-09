@@ -9,14 +9,14 @@ import SearchFilters from '../components/SearchFilters';
 import { baseUrl, fetchApi } from '../utils/fetchApi';
 import noresult from '../assets/images/noresult.svg'
 
-const Search = ({ properties }) => {
-  const [searchFilters, setSearchFilters] = useState(false);
+const Searchl = ({ properties }) => {
+  const [filtersSearch, setFiltersSearch] = useState(false);
   const router = useRouter();
 
   return (
     <Box>
       <Flex
-        onClick={() => setSearchFilters(!searchFilters)}
+        onClick={() => setFiltersSearch(!filtersSearch)}
         cursor='pointer'
         bg={useColorModeValue('gray.100', 'gray.900')}
         borderBottom='1px'
@@ -30,11 +30,11 @@ const Search = ({ properties }) => {
         <Text>Search Property By Filters</Text>
         <Icon paddingLeft='2' w='7' as={BsFilter} />
       </Flex>
-      {searchFilters && <SearchFilters />}
-      <Text fontSize='2xl' p='4' fontWeight='bold'>
+      {filtersSearch && <SearchFilters />}
+      <Text fontSize='2xl' p='4' fontWeight='bold' maxW={'7xl'} m={'auto'}>
         Properties {router.query.purpose}
       </Text>
-      <Flex flexWrap='wrap'>
+      <Flex flexWrap='wrap' justifyContent={'center'}  maxW={'7xl'} m={'auto'}>
         {properties.map((propertyItem) => <PropertySet propertyDt={propertyItem} key={propertyItem.id} />)}
       </Flex>
       {properties.length === 0 && (
@@ -68,4 +68,4 @@ export async function getServerSideProps({ query }) {
   };
 }
 
-export default Search;
+export default Searchl ;

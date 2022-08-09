@@ -23,7 +23,7 @@ const PropertyDetails = ({ propertyDetails: { price, rentFrequency, rooms, title
                 </Text>
                 <Spacer />
                 {/* <Avatar size='lg' src={agency?.logo?.url}></Avatar> */}
-                <Image  src={agency?.logo?.url} layout="intrinsic" width="100%" height="30" loading="lazy"/>
+                <Image  src={agency?.logo?.url} layout="intrinsic" width="100%" height="30" loading="lazy" placeholder="blur" with animated shimmer blurDataURL/>
             </Flex>
             <Flex alignItems='center' p='1' justifyContent='space-between' w='250px' color='blue.400'>
                 {rooms}<FaBed /> | {baths} <FaBath /> | {millify(area)} sqft <BsGridFill />
@@ -31,7 +31,9 @@ const PropertyDetails = ({ propertyDetails: { price, rentFrequency, rooms, title
         </Box>
         <Box marginTop='2'>
             <Text fontSize='lg' marginBottom='2' fontWeight='bold'>{title}</Text>
-            <Text lineHeight='2' color={useColorModeValue('gray.600', 'gray.200')}>{description}</Text>
+            {/* <Text lineHeight='2' color={useColorModeValue('gray.600', 'gray.200')}>{description}</Text> */}
+            <Box lineHeight='2' color={useColorModeValue('gray.600', 'gray.200')} dangerouslySetInnerHTML={{__html: description}}></Box>
+            
         </Box>
         <Flex flexWrap='wrap' textTransform='uppercase' justifyContent='space-between'>
             <Flex justifyContent='space-between' w='400px' borderBottom='1px' borderColor='gray.100' p='3'>

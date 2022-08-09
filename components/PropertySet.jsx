@@ -5,15 +5,15 @@ import { Avatar } from '@chakra-ui/avatar';
 import { FaBed, FaBath } from 'react-icons/fa';
 import { BsGridFill } from 'react-icons/bs';
 import { GoVerified } from 'react-icons/go';
-import millify from 'millify';
+import Millify from 'millify';
 
 import DefaultImage from '../assets/images/house.jpg';
 
 const PropertySet = ({ propertyDt: { coverPhoto, price, rentFrequency, rooms, title, baths, area, agency, isVerified, externalID  } }) => (
   <Link href={`/property/${externalID}`} passHref>
     <Flex flexWrap='wrap' w='420px' p='5' paddingTop='0px' justifyContent='center' cursor='pointer' >
-      <Box>
-        <Image src={coverPhoto ? coverPhoto.url : DefaultImage} width={400} height={260} loading="lazy"/>
+      <Box style={{borderRadius: '5px', overflow: 'hidden'}}>
+        <Image src={coverPhoto ? coverPhoto.url : DefaultImage} width={400} height={260} loading="lazy" placeholder="blur" with animated shimmer blurDataURL/>
       </Box>
       <Box w='full'>
         <Flex paddingTop='2' alignItems='center' justifyContent='space-between'>
@@ -27,7 +27,7 @@ const PropertySet = ({ propertyDt: { coverPhoto, price, rentFrequency, rooms, ti
         </Flex>
         <Flex alignItems='center' p='1' justifyContent='space-between' w='250px' color='blue.400'>
           {rooms}
-          <FaBed /> | {baths} <FaBath /> | {millify(area)} sqft <BsGridFill />
+          <FaBed /> | {baths} <FaBath /> | {Millify(area)} sqft <BsGridFill />
         </Flex>
         <Text fontSize='lg'>
           {title.length > 30 ? title.substring(0, 30) + '...' : title}
