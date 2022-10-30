@@ -33,6 +33,8 @@ const Links = [{
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
+  const color1 = useColorModeValue('gray.700', 'gray.200');
+  const color2 = useColorModeValue('gray.200', 'gray.700');
 
   return (
     <Box bg={useColorModeValue('white', 'gray.900')} px={4} borderBottom='1px' borderColor={useColorModeValue('gray.100', 'blackAlpha.700')}>
@@ -65,7 +67,7 @@ export default function Navbar() {
                 rounded={'md'}
                 _hover={{
                   textDecoration: 'none',
-                  bg: useColorModeValue('gray.700', 'gray.200'),
+                  bg: {color1},
                 }}
                 href={link.navHref}
                 key={link.navTitle}>
@@ -90,7 +92,7 @@ export default function Navbar() {
                 py={1}
                 _hover={{
                   textDecoration: 'none',
-                  bg: useColorModeValue('gray.200', 'gray.700'),
+                  bg: {color2},
                 }}
                 href={link.navHref}
                 key={link.navTitle}>

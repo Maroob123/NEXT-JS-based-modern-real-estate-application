@@ -13,7 +13,7 @@ const PropertySet = ({ propertyDt: { coverPhoto, price, rentFrequency, rooms, ti
   <Link href={`/property/${externalID}`} passHref>
     <Flex flexWrap='wrap' w='420px' p='5' paddingTop='0px' justifyContent='center' cursor='pointer' >
       <Box style={{borderRadius: '5px', overflow: 'hidden'}}>
-        <Image src={coverPhoto ? coverPhoto.url : DefaultImage} width={400} height={260} loading="lazy" placeholder="blur" with animated shimmer blurDataURL/>
+        <Image src={coverPhoto ? coverPhoto.url : DefaultImage} width={400} height={260} loading="lazy" placeholder="blur" with animated shimmer blurDataURL alt="coverPhoto"/>
       </Box>
       <Box w='full'>
         <Flex paddingTop='2' alignItems='center' justifyContent='space-between'>

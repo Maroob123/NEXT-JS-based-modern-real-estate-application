@@ -41,7 +41,7 @@ export default function ImageCarousel({ data }) {
       >
         {data.map((item) => (
           <SwiperSlide key={item.id} width='100%' style={{maxHeight: "450px"}}>
-            <img data-src={item.url} className="swiper-lazy"/>
+            <img data-src={item.url} className="swiper-lazy" alt="carousel Image"/>
             <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
           </SwiperSlide>
         ))}
@@ -59,7 +59,7 @@ export default function ImageCarousel({ data }) {
       >
         {data.map((item) => (
           <SwiperSlide key={item.id} style={{maxHeight: "100px", border: "1px solid gray"}} >
-            <img src={item.url} />
+            <img src={item.url} alt="Carousel thumb image"/>
           </SwiperSlide>
         ))}
       </Swiper>

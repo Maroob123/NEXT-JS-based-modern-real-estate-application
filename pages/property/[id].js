@@ -23,7 +23,7 @@ const PropertyDetails = ({ propertyDetails: { price, rentFrequency, rooms, title
                 </Text>
                 <Spacer />
                 {/* <Avatar size='lg' src={agency?.logo?.url}></Avatar> */}
-                <Image  src={agency?.logo?.url} layout="intrinsic" width="100%" height="30" loading="lazy" placeholder="blur" with animated shimmer blurDataURL/>
+                <Image  src={agency?.logo?.url} layout="intrinsic" width="100%" height="30" loading="lazy" placeholder="blur" with animated shimmer blurDataURL alt="agency-logo"/>
             </Flex>
             <Flex alignItems='center' p='1' justifyContent='space-between' w='250px' color='blue.400'>
                 {rooms}<FaBed /> | {baths} <FaBath /> | {millify(area)} sqft <BsGridFill />
