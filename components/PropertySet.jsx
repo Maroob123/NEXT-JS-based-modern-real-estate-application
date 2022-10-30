@@ -19,7 +19,7 @@ const PropertySet = ({ propertyDt: { coverPhoto, price, rentFrequency, rooms, ti
         <Flex paddingTop='2' alignItems='center' justifyContent='space-between'>
           <Flex alignItems='center'>
             <Box paddingRight='3' color='green.400'>{isVerified && <GoVerified />}</Box>
-            <Text fontWeight='bold' fontSize='lg'>AED {price.toLocaleString('en-US')}{rentFrequency && `/${rentFrequency}`}</Text>
+            <Text fontWeight='bold' fontSize='lg'>AED {price?.toLocaleString('en-US')}{rentFrequency && `/${rentFrequency}`}</Text>
           </Flex>
           <Box>
             <Avatar size='sm' src={agency?.logo?.url}></Avatar>
